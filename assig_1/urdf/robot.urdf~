@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<robot name="robot_arm">
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.8" radius="0.2"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="head">
+    <visual>
+      <geometry>
+        <sphere radius="0.2"/>
+      </geometry>
+    </visual>
+  </link>
+
+ <joint name="base_to_head" type="fixed">
+    <parent link="base_link"/>
+    <child link="head"/>
+    <origin xyz="0 0 0.4"/>
+  </joint>
+
+  <link name="right_arm">
+    <visual>
+      <geometry>
+        <box size="0.6 0.1 0.2"/>
+      </geometry>
+     <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_right_arm" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_arm"/>
+    <origin xyz="0 -0.22 0.25"/>
+  </joint>
+
+ <link name="right_elbow">
+    <visual>
+      <geometry>
+        <box size="0.3 0.1 0.2"/>
+      </geometry>
+     <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
+    </visual>
+  </link>
+
+  <joint name="right_arm_to_right_elbow" type="fixed">
+    <parent link="right_arm"/>
+    <child link="right_elbow"/>
+    <origin xyz="0 -0.22 0.25"/>
+  </joint>
+
+
+  <link name="left_arm">
+    <visual>
+      <geometry>
+        <box size="0.3 0.1 0.2"/>
+      </geometry>
+     <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_left_arm" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_arm"/>
+    <origin xyz="0 0.22 0.25"/>
+  </joint>
+
+
+
+</robot>

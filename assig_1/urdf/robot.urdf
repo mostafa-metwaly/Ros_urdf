@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<robot name="robot_arm">
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.8" radius="0.2"/>
+      </geometry>
+     </visual>
+  </link>
+
+  <link name="head">
+    <visual>
+      <geometry>
+        <sphere radius="0.22"/>
+      </geometry>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+    </visual>
+  </link>
+
+ <joint name="base_to_head" type="revolute">
+    <parent link="base_link"/>
+    <child link="head"/>
+    <axis  xyz="0 0 1" />
+    <limit
+      lower="-1.5"
+      upper="1.5"
+      effort="0"
+      velocity="0" />
+    <origin xyz="0 0 0.4"/>
+  </joint>
+
+  <link name="l_eye">
+    <visual>
+      <geometry>
+        <sphere radius="0.08"/>
+      </geometry>
+      <material name="black">
+       <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+ <joint name="head_to_l_eye" type="fixed">
+    <parent link="head"/>
+    <child link="l_eye"/>
+    <origin xyz="0.2 0.08 0"/>
+
+  </joint>
+    <link name="r_eye">
+    <visual>
+      <geometry>
+        <sphere radius="0.08"/>
+      </geometry>
+      <material name="black">
+       <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+ <joint name="head_to_r_eye" type="fixed">
+    <parent link="head"/>
+    <child link="r_eye"/>
+    <origin xyz="0.2 -0.08 0"/>
+  </joint>
+
+  <link name="right_arm">
+    <visual>
+      <geometry>
+        <box size="0.3 0.1 0.2"/>
+      </geometry>
+      <material
+        name="blue">
+         <color rgba="0 0 0.8 1"/>
+      </material>
+     <origin rpy="0 1.57075 0" xyz="0 0 -0.15"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_right_arm" type="revolute">
+    <parent link="base_link"/>
+    <child link="right_arm"/>
+    <origin xyz="0 -0.22 0.3"/>
+    <axis  xyz="0 1 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="0"
+      velocity="0" />    
+  </joint>
+
+ <link name="right_elbow">
+    <visual>
+      <geometry>
+        <box size="0.3 0.1 0.2"/>
+      </geometry>
+      <material
+        name="blue">
+         <color rgba="0 0 0.8 1"/>
+      </material>
+     <origin rpy="0 1.50075 0" xyz="0 0 -0.15"/>
+    </visual>
+  </link>
+
+  <joint name="right_arm_to_right_elbow" type="revolute">
+    <parent link="right_arm"/>
+    <child link="right_elbow"/>
+    <origin xyz="0 0 -0.3"/>
+    <axis  xyz="0 1 0" />
+    <limit
+      lower="-1.5"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+
+
+  <link name="left_arm">
+    <visual>
+      <geometry>
+        <box size="0.3 0.1 0.2"/>
+      </geometry>
+      <material
+        name="blue">
+         <color rgba="0 0 0.8 1"/>
+      </material>
+     <origin rpy="0 1.57075 0" xyz="0 0 -0.15"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_left_arm" type="revolute">
+    <parent link="base_link"/>
+    <child link="left_arm"/>
+    <origin xyz="0 0.22 0.3"/>
+    <axis  xyz="0 1 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="0"
+      velocity="0" /> 
+  </joint>
+
+
+ <link name="left_elbow">
+    <visual>
+      <geometry>
+        <box size="0.3 0.1 0.2"/>
+      </geometry>
+      <material
+        name="blue">
+         <color rgba="0 0 0.8 1"/>
+      </material>
+     <origin rpy="0 1.50075 0" xyz="0 0 -0.15"/>
+    </visual>
+  </link>
+
+  <joint name="left_arm_to_left_elbow" type="revolute">
+    <parent link="left_arm"/>
+    <child link="left_elbow"/>
+    <origin xyz="0 0 -0.3"/>
+    <axis  xyz="0 1 0" />
+    <limit
+      lower="-1.5"
+      upper="0"
+      effort="0"
+      velocity="0" /> 
+  </joint>
+
+
+</robot>
