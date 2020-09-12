@@ -7,4 +7,5 @@ using ROS :
 -write a script that manage to send joint_states values to move the robot.
 -write a launch file that connects all these files and visualize them in Rviz.
 
-you can find a link to a video demonestration for the final project and a some screenshots for the model.
+you can find a link to a video demonestration on youtube for the final project and a some screenshots for the model.
+https://youtu.be/Q5-5-oxzl5w
