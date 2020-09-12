@@ -1,0 +1,10 @@
+this is the first assignment in Dynamics of Non-linear robotic system course in Innopolis Master of Robotics.
+
+
+using ROS :
+
+-design a simple model with links and joints connected together.
+-write a script that manage to send joint_states values to move the robot.
+-write a launch file that connects all these files and visualize them in Rviz.
+
+you can find a link to a video demonestration for the final project and a some screenshots for the model.

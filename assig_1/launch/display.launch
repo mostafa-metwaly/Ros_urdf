@@ -1,13 +1,25 @@
+<!-- Created by Mostafa Osama Ahmed -->
 <launch>
 
   <arg name="model" default="$(find assig_1)/urdf/robot.urdf"/>
-  <arg name="gui" default="true" />
+  <arg name="gui" default="false" />
 
- <param name="robot_description" textfile="$(find assig_1)/urdf/robot.urdf"/>
- <node if="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" /> 
+  <param name="robot_description" textfile="$(find assig_1)/urdf/robot.urdf"/>
+
+  <!-- show robot in rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find assig_1)/launch/robot.rviz" />
+
+<!--    these two nodes responsible for the presence of the GUI to control the joints -->
+<!-- 
+   <node if="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" /> 
   <node unless="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+ -->   
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
-  <node name="state_publisher" pkg="script" type="publisher" />
-  <node name="rviz" pkg="rviz" type="rviz" />
+ <!-- this is responsible for the launching of the python script to control the robot joints inside the code or in another screen -->
+
+  <node name="state_publisher" pkg="assig_1" type="states_publisher.py" output="screen" launch-prefix="xterm -e"  respawn="true" respawn_delay="10"  />
+  
+ <!--  <node name="state_publisher" pkg="assig_1" type="states_publisher.py" />
+  -->
 
 </launch>

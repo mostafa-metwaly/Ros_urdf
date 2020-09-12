@@ -1,0 +1,29 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"head" [label="head"];
+"l_eye" [label="l_eye"];
+"r_eye" [label="r_eye"];
+"left_arm" [label="left_arm"];
+"left_elbow" [label="left_elbow"];
+"base_leg" [label="base_leg"];
+"right_arm" [label="right_arm"];
+"right_elbow" [label="right_elbow"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "base_to_head" [label="xyz: 0 0 0.4 \nrpy: 0 -0 0"]
+"base_to_head" -> "head"
+"head" -> "head_to_l_eye" [label="xyz: 0.22 0.08 0 \nrpy: 0 -0 0"]
+"head_to_l_eye" -> "l_eye"
+"head" -> "head_to_r_eye" [label="xyz: 0.22 -0.08 0 \nrpy: 0 -0 0"]
+"head_to_r_eye" -> "r_eye"
+"base_link" -> "base_to_left_arm" [label="xyz: 0 0.22 0.3 \nrpy: 0 -0 0"]
+"base_to_left_arm" -> "left_arm"
+"left_arm" -> "left_arm_to_left_elbow" [label="xyz: 0 0 -0.3 \nrpy: 0 -0 0"]
+"left_arm_to_left_elbow" -> "left_elbow"
+"base_link" -> "base_to_leg" [label="xyz: 0 0 -0.4 \nrpy: 0 -0 0"]
+"base_to_leg" -> "base_leg"
+"base_link" -> "base_to_right_arm" [label="xyz: 0 -0.22 0.3 \nrpy: 0 -0 0"]
+"base_to_right_arm" -> "right_arm"
+"right_arm" -> "right_arm_to_right_elbow" [label="xyz: 0 0 -0.3 \nrpy: 0 -0 0"]
+"right_arm_to_right_elbow" -> "right_elbow"
+}
